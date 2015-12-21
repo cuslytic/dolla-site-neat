@@ -1,0 +1,20 @@
+= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js'
+= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js'
+= javascript_include_tag '//cdn.rawgit.com/alvarotrigo/pagePiling.js/master/jquery.pagepiling.min.js'
+= javascript_include_tag '//cdn.jsdelivr.net/vivus/latest/vivus.min.js'
+= javascript_include_tag 'application'
+
+:javascript
+  $(document).ready(function() {
+  $('#pagepiling').pagepiling();
+  });
+
+  //new Vivus('.thumb-one', {duration: 200, background: '..images/thumb-section-1.svg'}, myCallback);
+
+- if build?
+  -# Google Analytics
+  :javascript
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));

@@ -1,0 +1,57 @@
+//
+// Some Useful color Vars via http://clrs.cc/
+//
+
+// Cool
+$aqua:  #7FDBFF
+$blue:  #0074D9
+$navy:  #001F3F
+$teal:  #39CCCC
+$green: #57EEBF
+$olive: #3D9970
+$lime:  #01FF70
+
+
+// Warm
+$yellow:  #FFDC00
+$orange:  #FF851B
+$red:     #FF4136
+$fuchsia: #F012BE
+$purple:  #B10DC9
+$maroon:  #85144B
+
+
+// Gray Scale
+$white:  #fff
+$silver: #3A3D42
+$gray:   #D8D8D8
+$black:  #111
+
+//fonts
+
+$font-1: 'Montserrat-Hairline','Fira Sans', sans-serif
+$font-2: 'Montserrat-Light','Fira Sans', sans-serif
+$font-3: 'Montserrat-Regular','Fira Sans', sans-serif
+$font-4: 'Dead Island','Fira Sans', sans-serif
+
+//break-points
+$first-breakpoint-value: 400px
+$second-breakpoint-value: 835px
+$third-breakpoint-value: 1100px
+
+// Screen Resolutions
+$small-screen: new-breakpoint(max-width em($first-breakpoint-value) 2)
+$medium-screen: new-breakpoint(min-width em($first-breakpoint-value) max-width em($second-breakpoint-value) 4)
+$large-screen: new-breakpoint(min-width em($second-breakpoint-value + 1) max-width em($third-breakpoint-value) 8)
+$xl-screen: new-breakpoint(min-width em($third-breakpoint-value))
+//
+// Add whatever variables you would like made available to the whole app
+//
+
+ // mixins
+=transform-scale($cale)
+ transform: $cale
+  -webkit-transform: $cale
+  -ms-transform: $cale
+  -moz-transform: $cale
+  -o-transform: $cale

@@ -1,0 +1,173 @@
+
+body
+  margin: 10px
+  background-color: $silver
+  overflow-x: hidden
+
+// DRY cheats ;) *wink
+
+.background
+  background-repeat: no-repeat
+  background-position: center
+
+//normal sass magic - hehehe
+
+.logo
+  background: url("../images/logo.png")
+.logo-dark
+  background: url("../images/logo-dark.png")
+.logo-dark, .logo
+  background-repeat: no-repeat
+  background-position: left
+  +position(absolute, 0% auto auto 2%)
+  height: 70px
+  width: 140px
+
+h1
+  font-family: $font-4
+  text-align: center
+  font-size: 7em
+  color: $white
+  span
+    color: $green
+
+
+#section1
+  background: url("../images/bg-starz.jpg")
+  background-repeat: no-repeat
+  background-size: cover
+  display: none
+  .print
+    .thumb-one
+      +position(fixed, 10% auto auto 30%)
+      background: url('../images/thumb-section-1.svg')
+      @extend .background
+      +size(600px)
+      @include media($medium-screen)
+        +position(fixed, 5% auto auto 10%)
+      @include media($small-screen)
+        +position(fixed, 5% auto auto -25%)
+        @include transform(scale(0.7))
+
+  .bottom-text
+    +outer-container
+    p
+      +span-columns(10)
+      +shift(1)
+      font-family: 'Montserrat-Hairline','Fira Sans', sans-serif
+      font-size: 2.3em
+      text-align: center
+      @include media($medium-screen)
+        font-family: $font-2
+        font-size: 1.3em
+
+// payment description section
+
+#section2
+  background-color: $gray
+  display: none
+  //@include media($small-screen)
+    @extend .pp-scrollable
+  .print
+    .thumb-two
+      +position(fixed, 10% auto auto 30%)
+      background: url('../images/thumb-section-2.svg')
+      @extend .background
+      z-index: 0
+      +size(600px)
+      @include media($medium-screen)
+        +position(fixed, 5% auto auto 10%)
+      @include media($small-screen)
+        +position(fixed, 5% auto auto -25%)
+        +transform-scale(0.7)
+
+  .top-stack
+    +outer-container
+    z-index: 1
+    //display: block
+    //margin-top: -5%
+    p
+      +span-columns(6)
+      +shift(3)
+      color: $silver
+      font-family: $font-2
+      font-size: 1.5em
+      text-align: center
+      @include media($small-screen)
+        font-size: 1em
+        +span-columns(7)
+        +shift(0)
+        text-align: left
+        //+shift(1)
+      //@include media($medium-screen)
+        font-size: 1em
+        //+span-columns(6)
+        //+shift(-2)
+
+
+  .mid-stack
+    z-index: 1
+    +position(relative, auto)
+    +outer-container
+    .item
+      +size(300px)
+      //border: 1px $silver solid
+      @include span-columns(4)
+      @include omega(3n)
+      @include media($small-screen)
+        //@include span-columns(12)
+        //@include omega(1n)
+        +size(50px)
+        display: none
+      .pay-text
+        p
+          font-family: $font-3
+          color: $silver
+          text-align: center
+      .mobile-pay
+        background-image: url('../images/section-2-mobile.png')
+        @extend .background
+        +size(300px 185px)
+      .web-pay
+        background-image: url('../images/section-2-web.png')
+        @extend .background
+        +size(300px 185px)
+      .email-pay
+        background-image: url('../images/section-2-mail.png')
+        @extend .background
+        +size(300px 185px)
+
+
+  .bottom-stack
+    +outer-container
+    p
+      +span-columns(8)
+      +shift(2)
+      color: $silver
+      font-family: $font-2
+      font-size: 1.5em
+      text-align: center
+
+#section3
+  background-color: $silver
+  .thumb-three
+    +position(fixed, 10% auto auto 30%)
+    background: url('../images/thumb-section-3.png')
+    @extend .background
+    z-index: 0
+    +size(600px)
+    @include media($medium-screen)
+      +position(fixed, 5% auto auto 10%)
+    @include media($small-screen)
+      +position(fixed, 5% auto auto -25%)
+      +transform-scale(0.7)
+  h1
+    +transform-scale(0.6)
+
+  .info-section
+    +size(400px)
+    background: $gray
+#section4
+  background-color: $gray
+
+.section
