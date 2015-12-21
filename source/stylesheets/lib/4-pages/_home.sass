@@ -10,6 +10,24 @@ body
   background-repeat: no-repeat
   background-position: center
 
+.fancy-font
+  font-family: $font-4
+  text-align: center
+
+.normal-text
+  font-family: $font-3
+  text-align: center
+  span
+    color: $green
+
+.top-text
+  +span-columns(6)
+  +shift(3)
+  color: $silver
+  font-family: $font-2
+  font-size: 1.5em
+  text-align: center
+
 //normal sass magic - hehehe
 
 .logo
@@ -24,8 +42,7 @@ body
   width: 140px
 
 h1
-  font-family: $font-4
-  text-align: center
+  @extend .fancy-font
   font-size: 7em
   color: $white
   span
@@ -87,12 +104,7 @@ h1
     //display: block
     //margin-top: -5%
     p
-      +span-columns(6)
-      +shift(3)
-      color: $silver
-      font-family: $font-2
-      font-size: 1.5em
-      text-align: center
+      @extend .top-text
       @include media($small-screen)
         font-size: 1em
         +span-columns(7)
@@ -121,9 +133,9 @@ h1
         display: none
       .pay-text
         p
-          font-family: $font-3
+          @extend .normal-text
           color: $silver
-          text-align: center
+
       .mobile-pay
         background-image: url('../images/section-2-mobile.png')
         @extend .background
@@ -150,9 +162,10 @@ h1
 
 #section3
   background-color: $silver
+  //display: none
   .thumb-three
     +position(fixed, 10% auto auto 30%)
-    background: url('../images/thumb-section-3.png')
+    background-image: url('../images/thumb-section-3.png')
     @extend .background
     z-index: 0
     +size(600px)
@@ -161,13 +174,54 @@ h1
     @include media($small-screen)
       +position(fixed, 5% auto auto -25%)
       +transform-scale(0.7)
-  h1
-    +transform-scale(0.6)
+  h2
+    @extend .fancy-font
+    font-size: 4em
+    color: $white
+    span
+      color: $green
 
   .info-section
-    +size(400px)
-    background: $gray
+    +outer-container
+    +size(1100px 300px)
+    +position(relative, auto)
+    z-index: 1
+    //border: 1px $gray solid
+    .info
+      //+size(30px)
+      //border: 1px $gray solid
+      @include span-columns(3)
+      @include omega(4n)
+      .img-hand
+        @extend .background
+        background-image: url('../images/img-hand.png')
+        +size(130px)
+        +shift(3)
+      .img-api
+        @extend .background
+        background-image: url('../images/img-api.png')
+        +size(130px)
+        +shift(3)
+
+      .img-dash
+        @extend .background
+        background-image: url('../images/img-dash.png')
+        +size(130px)
+        +shift(2)
+      .img-pay
+        @extend .background
+        background-image: url('../images/img-pay.png')
+        +size(130px)
+        +shift(2)
+
+      .pay-text
+        p
+          @extend .normal-text
+
 #section4
   background-color: $gray
+  .top-stack
+    p
+      @extend .top-text
 
 .section
