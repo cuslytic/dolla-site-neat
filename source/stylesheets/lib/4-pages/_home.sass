@@ -2,7 +2,7 @@
 body
   margin: 10px
   background-color: $silver
-  //overflow-x: hidden
+  overflow-x: hidden
 
 // DRY cheats ;) *wink
 
@@ -361,9 +361,12 @@ h1
           color: $white
   .dashboard
     +outer-container
+    .side-dash
+      //+position(relative)
+      +span-columns(4)
     .sexy-dash
       +span-columns(8)
-      +shift(4)
+      @include omega()
       background: url('../images/section-5-sexy-dash.png')
       @extend .background
       +size(900px 400px)
