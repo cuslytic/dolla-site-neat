@@ -9,6 +9,7 @@ body
 .background
   background-repeat: no-repeat
   background-position: center
+  background-size: cover
 
 .fancy-font
   font-family: $font-4
@@ -27,6 +28,12 @@ body
   font-family: $font-2
   font-size: 1.5em
   text-align: center
+
+.head-text
+  text-align: center
+  //+shift(1)
+  font-family: $font-2
+  font-size: 1.5em
 
 //normal sass magic - hehehe
 
@@ -180,7 +187,9 @@ h1
     color: $white
     span
       color: $green
-
+  .title-stack
+    p
+      @extend .head-text
   .info-section
     +outer-container
     +size(1100px 300px)
@@ -190,8 +199,12 @@ h1
     .info
       //+size(30px)
       //border: 1px $gray solid
-      @include span-columns(3)
-      @include omega(4n)
+      @include span-columns(4)
+      @include omega(3n)
+      .img-title
+        p
+          @extend .head-text
+          color: $gray
       .img-hand
         @extend .background
         background-image: url('../images/img-hand.png')
@@ -220,41 +233,117 @@ h1
 
 #section4
   background-color: $gray
+  display: none
+  .thumb-four
+    +position(fixed, 10% auto auto 30%)
+    background-image: url('../images/thumb-section-4.svg')
+    @extend .background
+    z-index: 0
+    +size(600px)
+    @include media($medium-screen)
+      +position(fixed, 5% auto auto 10%)
+    @include media($small-screen)
+      +position(fixed, 5% auto auto -25%)
+      +transform-scale(0.7)
   h2
     @extend .fancy-font
+    +position(relative, auto)
     font-size: 5em
     color: $white
     span
       color: $green
   .top-stack
     //margin-top: -10%
+    +position(relative, auto)
+    z-index: 1
     p
       @extend .top-text
       @include media($small-screen)
         +shift(1)
+
   .money-maker
+    +position(relative, auto)
     +outer-container
+    z-index: 1
     .amount
       +span-columns(4)
       +shift(3.5)
-      background: $silver
+      //background: rgba($silver, .5)
+      border: 1px $silver solid
       +size(400px 100px)
       margin-bottom: 0.5%
       @include media($medium-screen)
         +shift(2)
       @include media($small-screen)
         +shift(0)
+      p
+        @extend .normal-text
+        color: $silver
     .mobile-money
       @extend .amount
+      p
+        @extend .normal-text
+        color: $silver
     .amount-recieve
       @extend .amount
+      p
+        @extend .normal-text
+        color: $silver
     .competitor
       +span-columns(9)
       +shift(2.2)
-      +size(600px 150px)
-      background: $silver
+      +size(600px 100px)
+      border: 1px $silver solid
       @include media($medium-screen)
         +shift(0)
       .block
         //+span-columns()
-.section
+#section5
+  background: url("../images/bg-sec-4.jpg")
+  @extend .background
+  .logo
+    +position(fixed)
+  .skinny-text
+    p
+      text-align: center
+      color: $white
+      font-family: $font-1
+      font-size: 6em
+  .title-stack
+    +outer-container
+    p
+      +span-columns(10)
+      +shift(1)
+      @extend .head-text
+      color: $white
+  .dolla-checkout
+    +outer-container
+    .checkout
+      //+size(260px 420px)
+      //background: $silver
+      //@extend .background
+      @include span-columns(4)
+      @include omega(3n)
+      .one
+        background: url('../images/section-5-one.png')
+        +size(600px)
+        @extend .background
+        background-repeat: no-repeat
+      .two
+        background: url('../images/section-5-two.png')
+        +size(600px)
+        @extend .background
+        background-repeat: no-repeat
+      .three
+        background: url('../images/section-5-three.png')
+        +size(600px)
+        @extend .background
+        background-repeat: no-repeat
+  .dolla-info
+    +outer-container
+    .info
+      +span-columns(4)
+      @include omega(3n)
+      .one
+      .two
+      .three
