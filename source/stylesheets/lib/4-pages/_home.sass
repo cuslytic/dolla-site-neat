@@ -2,14 +2,13 @@
 body
   margin: 10px
   background-color: $silver
-  overflow-x: hidden
+  //overflow-x: hidden
 
 // DRY cheats ;) *wink
 
 .background
   background-repeat: no-repeat
   background-position: center
-  background-size: cover
 
 .fancy-font
   font-family: $font-4
@@ -55,12 +54,14 @@ h1
   span
     color: $green
 
+//.section
+    height: 900px
 
 #section1
   background: url("../images/bg-starz.jpg")
   background-repeat: no-repeat
   background-size: cover
-  display: none
+  //display: none
   .print
     .thumb-one
       +position(fixed, 10% auto auto 30%)
@@ -89,7 +90,7 @@ h1
 
 #section2
   background-color: $gray
-  display: none
+  //display: none
   //@include media($small-screen)
     @extend .pp-scrollable
   .print
@@ -169,7 +170,7 @@ h1
 
 #section3
   background-color: $silver
-  display: none
+  //display: none
   .thumb-three
     +position(fixed, 10% auto auto 30%)
     background-image: url('../images/thumb-section-3.png')
@@ -233,7 +234,7 @@ h1
 
 #section4
   background-color: $gray
-  display: none
+  //display: none
   .thumb-four
     +position(fixed, 10% auto auto 30%)
     background-image: url('../images/thumb-section-4.svg')
@@ -304,11 +305,13 @@ h1
   .logo
     +position(fixed)
   .skinny-text
+    //margin-top: 20%
     p
       text-align: center
       color: $white
       font-family: $font-1
-      font-size: 6em
+      font-size: 5em
+      margin-top: 3%
   .title-stack
     +outer-container
     p
@@ -341,9 +344,27 @@ h1
         background-repeat: no-repeat
   .dolla-info
     +outer-container
+    margin-top: -15%
     .info
       +span-columns(4)
+      //background: $silver
+      //+size(300px)
       @include omega(3n)
       .one
-      .two
-      .three
+        p
+          @extend .normal-text
+          color: $green
+          font-size: 1.2em
+      .one-text
+        p
+          @extend .normal-text
+          color: $white
+  .dashboard
+    +outer-container
+    .sexy-dash
+      +span-columns(8)
+      +shift(4)
+      background: url('../images/section-5-sexy-dash.png')
+      @extend .background
+      +size(900px 400px)
+      background-repeat: no-repeat
