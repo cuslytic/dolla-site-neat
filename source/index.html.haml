@@ -90,16 +90,25 @@ body_class: index
       .thumb-four
     .top-stack
       %p
-        Save money on every cent you recieve with Dolla, use the calculator below to see:
+        Save money on every cent you recieve with Dolla, use the calculator below to see.
     .money-maker
       .amount
-        //%p International Payment Amount
+        %p Enter payment amount:
         .input-group.style-1
           %input{:type => 'text', :placeholder => '$300.00'}
       .mobile-money
-        %p Mobile Money Provider
+        %p Pick a mobile money provider:
+        %select#cd-dropdown.cd-select
+          %option{:selected => "", :value => "-1"} Ecocash
+          %option.icon-monkey{:value => "1"} Telecash
+          %option.icon-bear{:value => "2"} Mpesa
+          %option.icon-squirrel{:value => "3"} Zipcash
+          %option.icon-elephant{:value => "4"} Nettcash
       .amount-recieve
-        %p Amount to recieve
+        %p Amount to recieve with Dolla
+        .input-group
+          .style-2
+            %input{:type => 'text', :placeholder => '$290.10'}
       .competitor
         .block
         .block

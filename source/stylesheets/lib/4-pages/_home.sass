@@ -1,3 +1,6 @@
+*, *:after, *:before
+  box-sizing: border-box
+
 
 body
   margin: 10px
@@ -279,21 +282,31 @@ h1
     .amount
       +span-columns(4)
       +shift(3.5)
+      +position(relative)
       //background: rgba($silver, .5)
-      border: 1px $silver solid
+      //border: 1px $silver solid
       +size(400px 100px)
-      margin-bottom: 0.5%
+      margin-bottom: 5%
       @include media($medium-screen)
         +shift(2)
       @include media($small-screen)
         +shift(0)
       p
         @extend .normal-text
+        //+position(absolute)
         color: $silver
       input
+        margin-top: 2%
+        text-align: center
+        color: $green
+        height: 60px
         @include placeholder
-          color: $silver
+          color: $white
           text-align: center
+        &:focus
+          @include placeholder
+            color: rgba($silver, .0)
+
 
     .mobile-money
       @extend .amount
@@ -305,15 +318,26 @@ h1
       p
         @extend .normal-text
         color: $silver
+      input
+        background: none
+        font-size: 5em
+        height: auto
+        font-family: $font-2
+        pointer-events: none
+
     .competitor
-      +span-columns(9)
-      +shift(2.2)
+      +outer-container
+      //+span-columns(9)
+      //+shift(2.2)
       +size(600px 100px)
       border: 1px $silver solid
       @include media($medium-screen)
         +shift(0)
       .block
-        //+span-columns()
+        +span-columns(9)
+        @include omega(3n)
+        background: $silver
+        +size(100px 200px)
 #section5
   background: url("../images/bg-sec-4.jpg")
   @extend .background
