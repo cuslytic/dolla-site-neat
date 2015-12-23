@@ -93,7 +93,9 @@ body_class: index
         Save money on every cent you recieve with Dolla, use the calculator below to see:
     .money-maker
       .amount
-        %p International Payment Amount
+        //%p International Payment Amount
+        .input-group.style-1
+          %input{:type => 'text', :placeholder => '$300.00'}
       .mobile-money
         %p Mobile Money Provider
       .amount-recieve
