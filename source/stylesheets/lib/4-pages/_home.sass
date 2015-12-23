@@ -34,6 +34,13 @@ body
   font-family: $font-2
   font-size: 1.5em
 
+.bottom-stack-text
+  +span-columns(8)
+  +shift(2)
+  font-family: $font-2
+  font-size: 1.5em
+  text-align: center
+
 //normal sass magic - hehehe
 
 .logo
@@ -161,12 +168,9 @@ h1
   .bottom-stack
     +outer-container
     p
-      +span-columns(8)
-      +shift(2)
+      @extend .bottom-stack-text
       color: $silver
-      font-family: $font-2
-      font-size: 1.5em
-      text-align: center
+
 
 #section3
   background-color: $silver
@@ -231,6 +235,12 @@ h1
       .pay-text
         p
           @extend .normal-text
+  .bottom-stack
+    +outer-container
+    p
+      @extend .bottom-stack-text
+      color: $white
+
 
 #section4
   background-color: $gray

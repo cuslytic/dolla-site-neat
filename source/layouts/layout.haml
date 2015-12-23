@@ -36,6 +36,7 @@
     = stylesheet_link_tag '//cdn.rawgit.com/alvarotrigo/pagePiling.js/master/jquery.pagepiling.css'
   %body{class: current_page.data.body_class || 'page'}
     = yield
+    = _partial "footer"
     -# Javascripts
     = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js'
     = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js'
@@ -60,7 +61,7 @@
               'textColor': '#000',
               'bulletsColor': '#000',
               'position': 'right',
-              'tooltips': ['section1', 'section2', 'section3', 'section4']
+              'tooltips': ['Home', 'Devices', 'section3', 'section4']
           },
           normalScrollElements: '#section5',
           normalScrollElementTouchThreshold: 50,
@@ -88,5 +89,4 @@
 
 
 
-    //= _partial "footer"
     //= _partial "foot"
