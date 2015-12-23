@@ -361,12 +361,13 @@ h1
           color: $white
   .dashboard
     +outer-container
+    +position(relative)
     .side-dash
-      //+position(relative)
+      +position(absolute)
       +span-columns(4)
     .sexy-dash
       +span-columns(8)
-      @include omega()
+      +shift(4)
       background: url('../images/section-5-sexy-dash.png')
       @extend .background
       +size(900px 400px)
