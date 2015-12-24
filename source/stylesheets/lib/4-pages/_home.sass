@@ -325,19 +325,19 @@ h1
         font-family: $font-2
         pointer-events: none
 
-    .competitor
-      +outer-container
-      //+span-columns(9)
-      //+shift(2.2)
-      +size(600px 100px)
-      border: 1px $silver solid
-      @include media($medium-screen)
-        +shift(0)
-      .block
-        +span-columns(9)
-        @include omega(3n)
-        background: $silver
-        +size(100px 200px)
+
+
+  .competitor
+    +outer-container
+    +span-columns(6)
+    +shift(3)
+    border: 1px $silver solid
+    @include media($medium-screen)
+    .cock
+      +span-columns(2)
+      +omega(3n)
+      background: $silver
+
 #section5
   background: url("../images/bg-sec-4.jpg")
   @extend .background
