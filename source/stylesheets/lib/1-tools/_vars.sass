@@ -36,15 +36,19 @@ $font-3: 'Montserrat-Regular','Fira Sans', sans-serif
 $font-4: 'Dead Island','Fira Sans', sans-serif
 
 //break-points
+$mini-breakpoint-value: 320px
 $first-breakpoint-value: 400px
 $second-breakpoint-value: 835px
 $third-breakpoint-value: 1100px
 
 // Screen Resolutions
+$xsmall-screen: new-breakpoint(max-width em($mini-breakpoint-value) 2)
 $small-screen: new-breakpoint(max-width em($first-breakpoint-value) 2)
 $medium-screen: new-breakpoint(min-width em($first-breakpoint-value) max-width em($second-breakpoint-value) 4)
 $large-screen: new-breakpoint(min-width em($second-breakpoint-value + 1) max-width em($third-breakpoint-value) 8)
 $xl-screen: new-breakpoint(min-width em($third-breakpoint-value))
+
+
 //
 // Add whatever variables you would like made available to the whole app
 //

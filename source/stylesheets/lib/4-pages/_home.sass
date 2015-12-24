@@ -125,9 +125,9 @@ h1
       @extend .top-text
       @include media($small-screen)
         font-size: 1em
-        +span-columns(7)
+        +span-columns(6)
         +shift(0)
-        text-align: left
+        text-align: center
         //+shift(1)
       //@include media($medium-screen)
         font-size: 1em
@@ -245,6 +245,7 @@ h1
       color: $white
 
 
+
 #section4
   background-color: $gray
   //display: none
@@ -270,10 +271,21 @@ h1
     margin-top: 5%
     +position(relative, auto)
     z-index: 1
+    @include media($small-screen)
+      margin-top: 10%
     p
       @extend .top-text
+      @include media($medium-screen)
+        //+span-columns(9)
+        font-size: 1.2em
+        margin-top: 10%
+      //+shift(2)
       @include media($small-screen)
-        +shift(1)
+        +shift(3)
+        font-family: $font-3
+        font-size: 1em
+        margin-top: 10%
+        //+span-columns(10)
 
   .money-maker
     +position(relative, auto)
@@ -325,20 +337,21 @@ h1
         font-family: $font-2
         pointer-events: none
         margin-bottom: 5px
+        @include placeholder
+          color: $silver
 
 
 
   .competitor
     +outer-container
     +position(relative, 3% auto)
-    +span-columns(6)
     z-index: 1
     //+span-columns(12)
     border: 1px $silver solid
     @extend .normal-text
     @include media($medium-screen)
     .cock
-      +span-columns(2)
+      +span-columns(4)
       +omega(3n)
       +size(32.1%)
       margin: 5px
@@ -346,10 +359,12 @@ h1
       text-align: center
       p
         margin-bottom: 0px
+
       @include media($medium-screen)
         +span-columns(3)
         +clearfix
         +size(33.3%)
+        border-right: 1px $gray solid
         margin: 0px
       input
         font-size: 2em
