@@ -267,7 +267,7 @@ h1
     span
       color: $green
   .top-stack
-    //margin-top: -10%
+    margin-top: 5%
     +position(relative, auto)
     z-index: 1
     p
@@ -278,7 +278,7 @@ h1
   .money-maker
     +position(relative, auto)
     +outer-container
-    z-index: 1
+    z-index: 2
     .amount
       +span-columns(4)
       +shift(3.5)
@@ -307,9 +307,9 @@ h1
           @include placeholder
             color: rgba($silver, .0)
 
-
     .mobile-money
       @extend .amount
+      +position(relative)
       p
         @extend .normal-text
         color: $silver
@@ -324,19 +324,40 @@ h1
         height: auto
         font-family: $font-2
         pointer-events: none
+        margin-bottom: 5px
 
 
 
   .competitor
     +outer-container
+    +position(relative, 3% auto)
     +span-columns(6)
-    +shift(3)
+    z-index: 1
+    //+span-columns(12)
     border: 1px $silver solid
+    @extend .normal-text
     @include media($medium-screen)
     .cock
       +span-columns(2)
       +omega(3n)
+      +size(32.1%)
+      margin: 5px
       background: $silver
+      text-align: center
+      p
+        margin-bottom: 0px
+      @include media($medium-screen)
+        +span-columns(3)
+        +clearfix
+        +size(33.3%)
+        margin: 0px
+      input
+        font-size: 2em
+        font-family: $font-2
+        margin: 0px
+        @include placeholder
+          text-align: center
+
 
 #section5
   background: url("../images/bg-sec-4.jpg")
