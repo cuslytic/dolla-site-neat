@@ -71,9 +71,17 @@
           animateAnchor: true,
 
           //events
-          onLeave: function(index, nextIndex, direction){},
-          afterLoad: function(anchorLink, index){},
-          afterRender: function(){},
+          onLeave: function(index, nextIndex, direction){
+            var section5 = $(this.section5);
+            index == 4 && nextIndex == 5 && direction == "down" && section5.scrollTop(0).removeClass('pp-scrollable');
+          },
+          afterLoad: function(anchorLink, index){
+            var section5 = $(this.section5);
+            index === 5 && section5.addClass('pp-scrollable').scrollTop(0);
+          },
+          afterRender: function(){
+            this.section5 = $('#section5');
+          },
           });
       });
 
@@ -87,7 +95,5 @@
         (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
         g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
         s.parentNode.insertBefore(g,s)}(document,'script'));
-
-
 
     //= _partial "foot"
