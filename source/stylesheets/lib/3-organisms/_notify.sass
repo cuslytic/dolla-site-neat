@@ -1,0 +1,34 @@
+$notify-main-color: $color-2
+$notify-shadow-color: rgba($color-1, .6)
+
+.notify
+  +media($small-screen)
+    display: none
+  +media($xsmall-screen)
+    display: none
+
+  +position(absolute, 10% auto auto 24em )
+  +size(300px auto)
+  // +box-shadow(0px, -1px, 50px, 5px, $notify-shadow-color)
+  background: $notify-main-color
+  padding: 1em
+  p
+    +transition(all 0.5s $ease-in-quint)
+    line-height: 1
+    opacity: 0
+  +transform(scale(0.1))
+  +transition($base-transition)
+  transform-origin: left
+  &::after
+    content: "\25c4"
+    // background: $color-1
+    +position(absolute, 20% auto auto -5.5%)
+    color: $notify-main-color
+    font-size: 2em
+    // text-shadow: 1px 2px 10px $notify-shadow-color
+  &:hover
+    +transform(scale(1))
+    p
+      opacity: 1
+
+  &.is-active

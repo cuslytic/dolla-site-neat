@@ -1,0 +1,17 @@
+.list
+  +position(relative)
+  li
+    +position(relative)
+    display: block !important
+    list-style: none
+    padding: 0.5em
+    margin-right: 1em
+  &--horizontal
+    +position($rel)
+    li
+      @extend .list
+      display: inline-block
+      margin-right: 1em
+      padding: 0.5em
+  &--pay
+    +center($abs, true, true)

@@ -1,0 +1,96 @@
+// .nav--largeScreen
+//   .nav
+//     .nav__logo
+//       .logo
+//     .nav__nav
+//       %ul.list--horizontal.nav__desktop
+//         %li
+
+.nav
+  &--largeScreen
+    +size(100% 20vh)
+    // +position($rel)
+    // z-index: 10
+    +media($xsmall-screen)
+      display: none
+    +media($small-screen)
+      display: none
+    +media($medium-screen)
+      display: none
+
+  &--mobile
+
+    +media($large-screen)
+      display: none
+    +media($xl-screen)
+      display: none
+  &__logo
+    text-align: center
+    margin-top: 1em
+    +span-columns(3)
+  &__nav
+    text-align: center
+    +span-columns(9)
+
+  &__link--desktop
+    text-transform: uppercase
+    color: $color-1
+    +transition(all .25s $ease-in-sine)
+
+    &:active,
+    &:hover,
+    &:focus
+      color: $color-2
+      cursor: pointer
+
+  &__menu
+    +position(relative)
+    &::after
+      content: ""
+      +size(20px)
+      +position($abs, auto 40% -15% auto)
+      background: url("../images/SVG/chevron-down.svg")
+      +transform(translateY(-10px) scale(0.3))
+      opacity: 0
+      +transition(all .25s $ease-in-sine)
+    span
+      +transform(translateY(10px))
+      +transition(all .25s $ease-in-sine)
+      visibility: hidden
+      opacity: 0
+
+    &:hover
+      cursor: pointer
+      &::after
+        +transform(translateY(0px) scale(0.7))
+        opacity: 1
+      span
+        +transform(translateY(0px))
+        visibility: visible
+        opacity: 1
+  &__menuStack
+    +position(absolute, 100% auto auto -50%)
+    padding: 0.5em
+    +size(180px auto)
+    border: $border
+    // background: $color-4
+    border-radius: $radius
+    z-index: 2
+    line-height: 1
+    text-align: left
+    ul
+      padding-left: 0 !important
+      li
+        font-size: 0.8em
+        font-family: $font-3
+        +transition(all .25s $ease-in-sine)
+        &:hover
+          color: $hover-2
+
+@keyframes expand
+  0%
+    +transform(scale(5))
+    opacity: 1
+  100%
+    +transform(scale(10))
+    opacity: 0

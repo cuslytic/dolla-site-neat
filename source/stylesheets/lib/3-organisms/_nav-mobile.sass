@@ -1,0 +1,90 @@
+
+.nav
+  &--mobile
+  &__logo
+    margin-top: 0.5em
+    +position(relative)
+    z-index: 3
+    display: inline-block
+  &__hamburger
+    +size(30px)
+    display: inline-block
+    margin-top: 2em
+    +span-columns(1 of 2)
+    +position($rel)
+    float: right
+    span
+      float: right
+      // +center($abs, true, true)
+      +position($rel, auto -30% auto auto)
+      z-index: 3
+      +size(30px 2px)
+      background: $color-1
+      +transition(all .5s $ease-in-back)
+      &::after,
+      &::before
+        +transition(all .5s $ease-in-back)
+        content: ""
+        +size(30px 2px)
+        background: $color-1
+        +position($abs)
+      &::after
+        +transform(translateY(7px))
+      &::before
+        +transform(translateY(-7px))
+    &.switch
+      span
+        background: transparent
+        &::after
+          +transform(translateY(0px) rotate(45deg))
+        &::before
+          +transform(translateY(0px) rotate(-45deg))
+
+
+  &__nav--mobile
+    visibility: hidden
+    +transition(all .5s $ease-in-sine)
+    +position(absolute, 0 0 auto auto)
+    +size(100% 100vh)
+    +media($medium-screen)
+      +size(100% 65vh)
+    background: $color-4
+    z-index: 2
+    text-align: center
+    button
+      +transform(translateY(50px))
+    .list
+      padding: 0 !important
+      +position($rel)
+      margin-top: 10em
+      .btn__fullScreen
+        +position($abs)
+        bottom: 0
+        left: 0
+    li
+      +size(100% 80px)
+      line-height: 80px
+      +position($rel, auto auto 0 auto)
+      overflow: hidden
+      padding: 0 !important
+      margin: 0 !important
+      +transition(all .5s $ease-in-sine)
+      opacity: 0
+      +filter(blur(20px))
+
+  &__link--mobile
+    +position($rel)
+    color: $color-1
+    text-transform: uppercase
+    font-size: 2.5em
+
+
+
+.nav__nav--mobile
+  &.is-open
+    visibility: visible
+    li
+      opacity: 1
+      +filter(blur(0px))
+    button
+      +transform(translateY(0px))

@@ -1,0 +1,93 @@
+.PayFrom--largeScreen
+  .DollaBox
+    .ChatBox
+      .ChatBox__profile
+        .ChatBox__picture
+      .Chatbox__bubble
+        .typing__indicator
+          %span
+          %span
+          %span
+
+      .ChatBox__bubble
+        %p Awesome! You made it.
+      .ChatBox__bubble
+        %p Victory, i advise you to press “Remember Me” so you don’t have to go through this process again. Trust me, you dont want to do that.
+
+      .ChatBox__bubble
+        %p :D ......
+
+    .PayBox
+      .PayBox__square
+        .print
+        .PayBox__merchant
+          .PayBox__merchantDetails
+            .PayBox__merchantLogo
+              .PayBox__merchantImage
+            %h4 Merchant Title
+            %h5 Account #454545
+        %form.PayBox__form
+          .PayBox__input
+            -# %label.bold Email
+            .input__iconLeft
+              %input{:type =>"", :placeholder => "Email"}
+              %span
+                %svg.lnr.lnr-envelope
+                  %use{"xlink:href" => "#lnr-envelope"}
+          %ul.accordion-tabs-minimal
+            %li.tab-header-and-content
+              %a.tab-link.tab-link__paybox.is-active{:href => "#"} Card
+              .tab-content__paybox
+                .PayBox__input
+                  .input__iconLeft
+                    %input.cc-num{:type =>"", :placeholder => "Card Number"}
+                    %span
+                      %svg.lnr.lnr-dice
+                        %use{"xlink:href" => "#lnr-dice"}
+                .PayForm__select--gray
+                  .item--naked
+                    .PayBox__input
+                      .input__iconLeft
+                        %label.bold
+                        %input.cc-exp{:type =>"", :placeholder => "Expiry"}
+                        %span
+                          %svg.lnr.lnr-calendar-full
+                            %use{"xlink:href" => "#lnr-calendar-full"}
+                  .item--naked
+                    .PayBox__input
+                      .input__iconLeft
+                        %label.bold
+                        %input.cc-cvc{:type =>"", :placeholder => "CCV/CVV"}
+                        %span
+                          %svg.lnr.lnr-lock
+                            %use{"xlink:href" => "#lnr-lock"}
+
+            %li.tab-header-and-content
+              %a.tab-link.tab-link__paybox{:href => "#"} Mobile Wallet
+              .tab-content__paybox
+                .PayBox__input
+                  .input__iconLeft
+                    -# %label.bold Mobile Number
+                    %input{:type =>"", :placeholder => "Enter Mobile Number"}
+                    %span
+                      %svg.lnr.lnr-smartphone
+                        %use{"xlink:href" => "#lnr-smartphone"}
+                .PayBox__input
+                  .input__iconLeft
+                    -# %label.bold Mobile Number
+                    %input{:type =>"password", :placeholder => "Mobile Wallet Password"}
+                    %span
+                      %svg.lnr.lnr-lock
+                        %use{"xlink:href" => "#lnr-lock"}
+
+        .PayForm__remember
+          .PayBox__select
+            .select__box
+              %p Remember Me
+            .select__box
+              .select
+                .select__no
+                .select__yes
+
+        %button.PayBox__button
+          Pay $200

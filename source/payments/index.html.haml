@@ -1,0 +1,74 @@
+---
+title: Make Payment
+body_class: index
+---
+
+#payment__page
+  .section__header
+    .nav--largeScreen
+      .nav
+        .nav__logo
+          %h1.logo
+            Dolla
+        .nav__nav
+          %ul.list--horizontal.nav__desktop
+            %li
+              %a.nav__link--desktop{:href => "/"}
+                Home
+            %li
+              %a.nav__link--desktop{:href => "/"}
+                About
+            %li.nav__menu
+              %a.nav__link--desktop{:href => "/"}
+                Products
+              %span.nav__menuStack
+                %ul.list
+                  %li
+                    For Freelancers
+                  %li
+                    For Small Businesses
+                  %li
+                    For Consultants
+            %li
+              %a.nav__link--desktop{:href => "/"}
+                Help
+            %li.nav__menu
+              %button.btn--white
+                Register
+              %span.nav__menuStack
+                %ul.list
+                  %li
+                    Customers
+                  %li
+                    Merchants
+
+    .nav--mobile
+      .nav
+        .nav__logo
+          %h3.logo
+            Dolla
+        .nav__hamburger
+          %span
+        .nav__nav--mobile
+          %ul.list
+            %li
+              %a.nav__link--mobile{:href => "/"}
+                Home
+            %li
+              %a.nav__link--mobile{:href => "/"}
+                About
+            %li
+              %a.nav__link--mobile{:href => "/"}
+                Products
+            %li
+              %a.nav__link--mobile{:href => "/"}
+                Help
+          %button.btn__submit
+            Sign Up for Beta
+
+    =partial "_partials/payments/mobile"
+    =partial "_partials/payments/large-screen"
+
+    
+
+    -# .brand__bg

@@ -1,0 +1,139 @@
+$block-background: darken($color-2, 2)
+
+
+.btn,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"]
+  +transition(all 0.5s $ease-in-sine)
+  +position(relative)
+  display: inline-block
+  // height: 38px
+  padding: 12px 20px
+  color: $color-1
+  text-align: center
+  font-size: 11px
+  font-weight: 600
+  //line-height: 38px
+  letter-spacing: .1rem
+  text-transform: uppercase
+  text-decoration: none
+  white-space: nowrap
+  background-color: transparent
+  //border-radius: 4px
+  border: 2px solid $color-1
+  cursor: pointer
+  box-sizing: border-box
+  .icon
+    +position(absolute, 50% 0 auto auto)
+    +size(20px)
+    background: $color-3
+    border-radius: 100%
+  &:hover,
+  &:active,
+  &:focus
+    background: transparentize($color-1, .8)
+    //border-color: #888
+    outline: 0
+
+  &.btn
+    &--cross
+      +position(relative)
+      border: 2px transparent solid
+      +size(30% 40px)
+      svg
+        // fill: $cherry
+        +size(30px)
+        +center($abs, true, true)
+      &:hover,
+      &:active,
+      &:focus
+        background: transparent
+        svg
+          fill: $cherry
+
+    &--tick
+      @extend .btn--cross
+      border: 2px transparent solid
+      svg
+        +size(30px)
+        +center($abs, true, true)
+      &:hover,
+      &:active,
+      &:focus
+        svg
+          fill: $color-3
+
+
+    &--cross
+    &--dark
+      background-color: $color-1
+      color: $color-2
+      &:hover,
+      &:active,
+      &:focus
+        background: $hover-1
+        color: $white
+        //border-color: #888
+        outline: 0
+    &--white
+      background-color: $white
+      color: $color-1
+      border: none
+      &:hover,
+      &:active,
+      &:focus
+        background: $hover-white
+        outline: 0
+    &--neo
+      border: 2px $color-3 solid
+      color: $color-3
+      &:hover,
+      &:active,
+      &:focus
+        background: transparentize($color-3, .8)
+
+    &--disabled
+      background-color: $color-2
+      border: 1px $color-1 dashed
+      &:hover,
+      &:active,
+      &:focus
+        color: transparentize($color-1, .7)
+        cursor: not-allowed
+    &__submit
+      +size(100% 50px)
+      +position($abs, auto auto 0 0)
+      +transition(all 0.25s $ease-in-sine)
+      background: $white
+      border: none
+      &:hover,
+      &:active,
+      &:focus
+        background-color: $hover-white
+        cursor: pointer
+
+    &__fullScreen
+      +size(100% 20vh)
+      margin: 0
+      border: none
+      background: $color-3
+      &::after
+        content: ""
+        +size(20px)
+        +position(absolute, 50% 10% auto auto)
+        +transition(all 0.5s $ease-in-sine)
+        opacity: 0
+        background: url("../images/SVG/arrow-right.svg")
+      &:hover,
+      &:active,
+      &:focus
+        color: transparentize($color-1, .7)
+        &::after
+          +transform(translateX(-20px))
+          opacity: 1
+
+a
+  &.btn__fullScreen
+    @extend .btn__fullScreen

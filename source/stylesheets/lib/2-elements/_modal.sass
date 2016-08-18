@@ -1,0 +1,193 @@
+$error: $cherry
+$notify-shadow-color: darken($color-4, 6)
+
+$gradient: linear-gradient($error, $color-3)
+
+
+.error
+  #{$all-text-inputs}
+    border-bottom: 2px $cherry dashed
+  .error-message
+    //+position(relative, -80% auto auto auto)
+    margin-top: -10px
+    text-align: center
+    font-size: 1em
+    color: $cherry
+
+.modal
+  $base-border-color: gainsboro !default
+  $base-border-radius: 3px !default
+  $base-background-color: $white !default
+  $base-font-size: 1em !default
+  $base-line-height: 1.5em !default
+  $action-color: #477dca !default
+  $dark-gray: #333333 !default
+  $light-gray: #dddddd !default
+  $medium-screen: em(640) !default
+  $large-screen: em(860) !default
+  $base-font-color: $color-1 !default
+  $modal-padding: 3em
+  $modal-background: $base-background-color
+  $modal-close-color: $color-1
+  $modal-image-height: 135px
+  $modal-image-width: $modal-image-height
+  $modal-trigger-image-width: 300px
+  $base-core: $white
+  $base-second: $color-2
+  //overflow: scroll
+  h4
+
+    text-align: center
+  &__state
+    display: none
+  &__trigger
+    padding: 0.8em 1em
+  &__fadeScreen
+    // overlay
+    +transition(opacity 0.65s $ease-in-out-quad)
+    +position(fixed, 0)
+    background-color: rgba($color-4, 0.9)
+    opacity: 0
+    padding-top: 0.6em
+    text-align: left
+    visibility: hidden
+    z-index: 99999999999
+    +media($large-screen)
+      padding-top: 10em
+    .thumb
+      +transition(0.7s $ease-in-out-quad)
+      +position(absolute)
+      opacity: .2
+      z-index: 0
+      transform: scale(3)
+      //display: none
+
+  &__close
+    +position(absolute, $modal-padding / 2 $modal-padding / 2)
+    +size(1.5em)
+    //background: $modal-background
+    cursor: pointer
+    &:after,
+    &:before
+      +position(absolute, 3px 3px 0 50%)
+      +transform(rotate(45deg))
+      +size(0.15em 1.5em)
+      background: $modal-close-color
+      content: ''
+      display: block
+      margin: -3px 0 0 -1px
+    &:hover:after,
+    &:hover:before
+      background: darken($white, 10%)
+    &:before
+      +transform(rotate(-45deg))
+  &__icon
+    text-align: center
+  &__closeButton
+    margin-top: 1em
+  &__inner
+    &--medium
+      width: 50%
+      @extend .modal__inner
+    &--large
+      width: 70%
+      @extend .modal__inner
+    +transition(all .5s $ease-out-sine)
+    +box-shadow(0px, -1px, 50px, 5px, transparent)
+    +transform(translateY(0px))
+    opacity: 0
+    background: $color-4
+    border-radius: $base-border-radius
+    border: 1px $white solid
+    margin: auto
+    max-height: 95%
+    overflow:scroll
+    padding: $modal-padding / 3
+    +position(relative)
+    z-index: 9999
+    width: 30%
+    +media($small-screen)
+      width: 90%
+    +media($small-screen)
+      width: 90%
+    +media($medium-screen)
+      max-height: 70%
+      padding: $modal-padding
+      width: 60%
+    +media($large-screen)
+      width: 50%
+    &--negative
+      .modal__icon
+        .alert__icon--positive
+          display: none
+      h4
+        color: $cherry
+        &.positiveHeadline
+          display: none
+
+    &--positive
+      .modal__icon
+        .alert__icon--negative
+          display: none
+      h4
+        color: $color-3
+        &.negativeHeadline
+          display: none
+    .modal__head
+      margin-bottom: 20px
+    .modal__body
+
+      label
+        color: $color-1
+        //+shift(2)
+
+    .modal__footer
+      margin-top: 20px
+      .buttons
+        +shift(2.5)
+    h5
+      color: $base-font-color
+      text-align: center
+      text-transform: uppercase
+    p
+      color: $base-font-color
+      line-height: $base-line-height
+
+  &__alert
+    text-align: center
+
+  &__data
+
+
+  .modal__state:checked + .modal__fadeScreen
+    opacity: 1
+    visibility: visible
+  .modal__state:checked + .modal__fadeScreen .modal__inner
+    top: 7.5em
+
+
+body
+  &.modal-open
+    .modal
+      &__error
+
+      .modal__inner
+        +box-shadow(0px, -1px, 50px, 5px, $notify-shadow-color)
+        +transform(translateY(10px))
+        opacity: 1
+        // animation: blend 0.8s $ease-in-back
+        // animation-delay: .2s
+        // animation-fill-mode: both
+
+@keyframes blend
+  0%
+    // +box-shadow(0px, -1px, 50px, 5px, transparent)
+    +transform(translateY(10px))
+    opacity: 0
+  100%
+    // +box-shadow(0px, -1px, 50px, 5px, $notify-shadow-color)
+    +transform(translateY(0px))
+    opacity: 1
+
+
+// Based on code by Kasper Mikiewicz

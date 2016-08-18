@@ -1,0 +1,101 @@
+.dropdown
+  $base-border-color: gainsboro !default
+  $base-border-radius: 0px !default
+  $base-line-height: 1.5em !default
+  $base-background-color: white !default
+  $dark-gray: #333333 !default
+  $large-screen: em(860) !default
+  $base-font-color: $color-1 !default
+  $dropdown-color: $base-font-color
+  $dropdown-description-color: $base-font-color
+  $dropdown-border: 1px solid silver
+  $dropdown-background: $base-background-color
+  $dropdown-background-hover: darken($dropdown-background, 3%)
+  $dropdown-inner-border: 1px solid silver
+  $dropdown-height: 40px
+  $dropdown-padding: 1em
+  $dropdown-distance-from-menu: 50px
+  $dropdown-arrow-top-distance: 0
+  line-height: $base-line-height
+  font-family: $font-2
+  +media($small-screen)
+    display: inline-block
+  &__container
+    display: inline-block
+    position: relative
+    text-align: center
+    width: 100%
+
+  &__button
+    background: $dropdown-background
+    +size(100% 40px)
+    border: 1px $color-1 solid
+    cursor: pointer
+    float: right
+    font-size: 0.8em
+    line-height: $dropdown-height
+    margin: 0
+    padding: 0 $dropdown-padding * 2.5 0 $dropdown-padding
+    position: relative
+    +media($large-screen)
+      font-size: 1em
+      padding: 0 $dropdown-padding * 2.5 0 $dropdown-padding / 2
+    &:hover
+      background-color: $dropdown-background-hover
+    &::after
+      color: $base-font-color
+      content: "\25BE"
+      display: block
+      position: absolute
+      right: $dropdown-padding
+      top: $dropdown-arrow-top-distance
+  &__menu
+    +transition(all 0.2s ease-in-out)
+    background: $dropdown-background
+    border-radius: $base-border-radius
+    border: $dropdown-border
+    box-shadow: 0 2px 2px transparentize(black, 0.8)
+    font-family: $font-2
+    color: $dropdown-color
+    cursor: pointer
+    display: none
+    margin: 0
+    overflow: show
+    padding: 0
+    position: absolute
+    left: 0
+    top: $dropdown-distance-from-menu
+    width: 228px
+    z-index: 99999
+    &:before
+      +position(absolute, 0 -1em 0 0)
+      color: $dropdown-background
+      content: "\25b2"
+      font-size: 1.4em
+      pointer-events: none
+      text-shadow: 0 -2px 2px transparentize(black, 0.7)
+      top: -0.7em
+
+  &__menu
+    li
+      border-bottom: $dropdown-inner-border
+      font-size: 0.8em
+      color: $dropdown-color
+      list-style: none
+      padding: $dropdown-padding / 2
+      display: block !important
+      margin-right: 0 !important
+      &:hover
+        background: $dropdown-background-hover
+      &:first-child
+        border-top-left-radius: $base-border-radius
+        border-top-right-radius: $base-border-radius
+      &:last-child
+        border: none
+        border-bottom-left-radius: $base-border-radius
+        border-bottom-right-radius: $base-border-radius
+
+  .show-menu
+    display: block
+
+// Inspired by code by www.HUSAMUI.com

@@ -1,0 +1,203 @@
+$border: 1px $color-1 solid
+$vh: 10vh
+$neo-color: $blue-fill
+
+
+
+.PayForm
+  max-width: 414px
+  &--largeScreen
+    +media($xsmall-screen)
+      display: none
+    +media($small-screen)
+      display: none
+  &--mobileView
+    +media($xl-screen)
+      display: none
+    +media($large-screen)
+      display: none
+    +media($medium-screen)
+      display: none
+  &--mobile
+  &__head
+    +position($rel)
+    +size(100% 25vh)
+    background: $neo-color
+    padding-top: 1px
+  &__input
+    +size(100% 12vh)
+    font-size: 1.2em
+    @extend .input
+    background-color: $color-4
+    border-top: $border
+    border-left: none
+    margin: 0
+    span
+      svg
+        // fill: $neo-color
+        top: 33%
+    label
+      font-size: 0.8em
+      +center($abs, true, false)
+      top: 10%
+    input
+      border: transparent
+      +size(100% 12vh)
+      &:focus,
+      &:active
+        outline: none
+        background: transparentize($neo-color, .8)
+        border: 1px transparent solid
+
+    &--cardNumber
+      @extend .PayForm__input
+    &--ccv
+      @extend .PayForm__input
+      border-bottom: $border
+    &--email
+      @extend .PayForm__input
+    &--expiry
+      @extend .PayForm__input
+      border-bottom: $border
+      margin-bottom: 10px
+
+    &--mobileMoneyPassword
+      @extend .PayForm__input
+    &--mobileMoneyNumber
+      @extend .PayForm__input
+
+    &--mobileNumber
+      @extend .PayForm__input
+      border-top: 1px $white dashed
+      svg
+        animation: float 15s $ease-in-sine infinite
+  &__register
+    // padding: 15px 0
+
+    &Content
+      +size(100% 60px)
+      background: $color-3
+      padding: 20px
+    &Activate
+      +span-columns(2 of 2)
+      +size(100% 50px)
+      text-align: center
+      +position($rel)
+      .item
+        height: 50px
+        &:nth-of-type(1)
+          margin-right: 8%
+        +span-columns( 1 of 2)
+        label
+          +span-columns(0.5 of 1)
+        .label-switch
+          margin-top: 10px
+          text-align: left
+        h5
+          text-align: right
+          // +center($abs, true, true)
+  &__notification
+    +size(100% auto)
+    +transform(translateY(-100%))
+    opacity: 0
+    +position($abs)
+    +transition(all .25s $ease-in-sine)
+    padding: 10px
+    color: $white
+    background: $cherry
+    &.js--active
+      +transform(translateY(0%))
+      +position($rel)
+      opacity: 1
+  &__select
+    +size(100% 12vh)
+    background: $color-1
+    &--naked
+      @extend .PayForm__select
+      background: $color-4
+    &--gray
+      @extend .PayForm__select
+      background: $color-4
+
+    .item
+      +size(49% 12vh)
+      +position($rel)
+      background: $color-1
+      margin: 0
+      display: inline-block
+      p
+        text-align: center
+        text-transform: uppercase
+        line-height: 55px
+        +media($large-screen)
+          line-height: 1em
+          text-transform: none
+        +media($xl-screen)
+          line-height: 1em
+          text-transform: none
+        +media($medium-screen)
+          line-height: 1em
+          text-transform: none
+
+      &__text
+        text-align: right
+      &--naked
+        h5
+          display: inline-block
+        @extend .item
+        background: transparent
+        line-height: 1em
+
+
+    margin: 0
+    &--active
+  &__button
+    +size(100% 60px)
+    background: $color-1
+    color: $white
+    font-size: 1.5em
+    text-align: center
+
+.register__content
+  padding: 10px 5px
+  +size(100% auto)
+  background: $color-4
+  text-align: center
+  // padding: 20px
+
+
+.js__mobileWalletInterface
+  display: none
+  &.js--active
+    display: block
+.js__bankCardInterface
+  @extend .js__mobileWalletInterface
+
+.js__bankCardButton
+  color: transparentize($color-1, .6)
+  +transition(all .25s $ease-in-sine)
+  &.js--active
+    color: $color-1
+    font-weight: bold
+    p
+      +transform(scale(1.2))
+
+.js__mobileWalletButton
+  @extend .js__bankCardButton
+
+  &::after
+    content: ""
+    +transition(all .25s $ease-in-sine)
+    +size(100% 1.5px)
+    background: $color-1
+    +position($abs, auto auto 0 0)
+    +transform(translateX(-102%))
+  &.js--active
+    &::after
+      +transform(translateX(0))
+
+
+.PayForm__registerCustomerInformation
+  display: none
+  &.js--active
+    display: block

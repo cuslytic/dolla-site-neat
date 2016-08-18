@@ -4,22 +4,22 @@
 // http://fonts.googleapis.com/css?family=Fira+Sans
 
 @font-face {
-  font-family: "montserrat-r";
+  font-family: "Montserrat-Regular";
   src: url(lib/1-tools/Montserrat-Regular.ttf)
 }
 
 @font-face {
-  font-family: "montserrat-l";
+  font-family: "Montserrat-Light";
   src: url(lib/1-tools/Montserrat-Light.otf)
 }
 
 @font-face {
-  font-family: "montserrat-h";
+  font-family: "Montserrat-Hairline";
   src: url(lib/1-tools/Montserrat-Hairline.otf)
 }
 
 @font-face {
-  font-family: "trench";
+  font-family: "Trench";
   src: url(lib/1-tools/trench100free.otf)
 }
 
@@ -51,4 +51,40 @@
   font-weight: 400;
   src: local('Fira Mono'), local('FiraMono'), url(http://fonts.gstatic.com/s/firamono/v3/SlRWfq1zeqXiYWAN-lnG-pBw1xU1rKptJj_0jans920.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+@mixin center($position, $horizontal: true, $vertical: true) {
+  position: $position;
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+  @else {
+    bottom: 0%;
+    right: -50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin centerBottom($position, $horizontal: true, $vertical: true) {
+  position: $position;
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($horizontal) {
+    bottom: 0%;
+    right: -50%;
+    transform: translate(-50%, -50%);
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
 }

@@ -1,0 +1,124 @@
+.sliding-panel-content
+  $action-color: #477dca !default
+  $dark-gray: #333333 !default
+  $sliding-panel-border-color: $dark-gray
+  $sliding-panel-background: lighten($sliding-panel-border-color, 5%)
+  $sliding-panel-color: white
+  $sliding-panel-border: 1px solid $color-1
+  $sliding-panel-background-hover: $action-color
+  $sliding-panel-color-hover: white
+  $sliding-panel-background-focus: lighten($sliding-panel-background, 5%)
+  +position(fixed, 0px auto 0px 0px)
+  +size(220px 100%)
+  +transform(translateX(-220px))
+  +transition(all 0.35s $ease-in-back)
+  background: $color-3
+  z-index: 999999
+  overflow-y: auto
+  -webkit-overflow-scrolling: touch
+  ul
+    padding: 0
+    margin: 0
+  li
+    list-style: none
+  li a
+    border-bottom: $sliding-panel-border
+    color: $color-1
+    display: block
+    font-weight: bold
+    padding: 1em
+    text-decoration: none
+    &:focus
+      background-color: $color-1
+      color: $color-4
+    &:hover
+      background-color: $color-4
+      color: $sliding-panel-color-hover
+  &.is-visible
+    +transform(translateX(0))
+
+.sliding-panel-fade-screen
+  +position(fixed, 0px 0px 0px 0px)
+  +transition
+  background: $color-1
+  opacity: 0
+  visibility: hidden
+  z-index: 999998
+  &.is-visible
+    opacity: 0.7
+    visibility: visible
+
+.sliding-panel-button
+  padding: 10px 16px
+  display: inline-block
+  cursor: pointer
+  position: relative
+  outline: none
+  color: $color-1
+.garage-slider
+  +position(relative, 50px auto auto auto)
+  text-align: center
+  button
+    +size(60px)
+    +position(relative)
+    border-radius: 50%
+    overflow: hidden
+    border: 1px $color-4 solid
+    span,
+    span::before,
+    span::after
+      +position(absolute)
+      +size(35px 4px)
+      border-radius: 6px
+      background: $color-4
+      +transition(all .3s ease)
+    span
+      top: calc(50% - 2px)
+      left: calc(50% - 17.5px)
+    span::before,
+    span::after
+      content: ''
+      left: 0
+    span::before
+      top: 8px
+
+    span::after
+      bottom: 8px
+    &:hover
+      span::before
+        top: 10px
+      span::after
+        bottom: 10px
+      span
+
+
+  .car
+    +size(100% auto)
+    &:nth-of-type(1)
+      +transition(all 0.5s $ease-in-out-back)
+    &:nth-of-type(2)
+      +transition(all 0.4s $ease-in-out-back)
+      +position(absolute, 25% -100% auto auto)
+
+  // button
+  //   overflow-x: hidden
+  //   border: none
+  //   border-bottom: 2px $color-2 solid
+  //   color: $color-1
+  //   svg
+  //     path
+  //       fill: $color-4
+  //   &:hover
+  //     svg
+  //       path
+  //         fill: $color-4
+  // &:hover
+  //   cursor: pointer
+  //   .car
+  //     &:nth-of-type(1)
+  //       +transform(translateX(-150%))
+  //     &:nth-of-type(2)
+  //       +position(absolute, 25% 0 auto auto)
+
+
+// Based on code by Diego Eis

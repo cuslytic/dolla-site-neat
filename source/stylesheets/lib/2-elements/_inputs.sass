@@ -1,0 +1,81 @@
+label
+  display: block
+
+.input
+  +position(relative)
+  margin: 0.5em 0
+  &__iconLeft
+    +position(relative)
+    span
+      svg
+        +size(20px)
+        +position(absolute, 25% auto auto 2%)
+        // background: url("../images/SVG/thumbs-up.svg")
+  &__iconRight
+    +position(relative)
+    span
+      svg
+        +size(20px)
+        +position(absolute, 25% 2% auto auto)
+        // background: url("../images/SVG/thumbs-up.svg")
+
+  input
+    overflow: hidden
+    #{$all-text-inputs}
+    background: transparent
+    border: 1px $color-1 solid
+    width: 100%
+    display: inline-block
+    padding: 12px 30px
+    margin: 0
+    font-family: $font-3
+    font-size: 1.2em
+    text-align: center
+    appearance: none
+    box-shadow: none
+    border-radius: none
+    +transition(all .5s $ease-in-sine)
+    &:focus
+      outline: none
+      background: transparentize($color-3, .8)
+      border: 1px $color-1 dashed
+      @include placeholder
+        color: transparent
+    &:active
+      @include placeholder
+        color: transparent
+
+    .label
+      +position(absolute)
+      //color: $white
+      padding: 0 10px
+      display: block
+      font-family: $font-2
+    &.input--quarter
+      width: 25%
+
+  &__fullScreen
+    @extend .input
+    input
+      +size(100% 30vh)
+      font-size: 8em
+      font-family: $font-1
+      background: $color-1
+      border: none
+      @include placeholder
+        color: $color-4
+      &:focus
+        outline: none
+        background: $color-1
+        border: 1px $color-1 dashed
+        color: $color-3
+        @include placeholder
+          color: transparent
+      +media($small-screen)
+        +size(100% 15vh)
+        font-size: 2em
+        font-family: $font-1
+        &:focus
+          border: none
+      +media($xsmall-screen)
+  &__paybox

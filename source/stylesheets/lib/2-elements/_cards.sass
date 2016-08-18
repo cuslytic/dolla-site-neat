@@ -1,0 +1,116 @@
+.cards
+  +display(flex)
+  +flex-wrap(wrap)
+  +justify-content(space-between)
+
+.card
+  $base-border-color: gainsboro !default
+  $base-border-radius: 0px !default
+  $base-background-color: white !default
+  $base-spacing: 1.5em !default
+  $action-color: $color-1 !default
+  $dark-gray: $color-3 !default
+  $base-font-color: $dark-gray !default
+  $card-border-color: $base-border-color
+  $card-border: 1px solid $card-border-color
+  $card-background: $white
+  $card-header-background: $card-background
+  $card-margin: 1em
+  $card-image-hover-opacity: 0.7
+  $card-image-hover-color: #f8f2b4
+  +flex-basis(15em)
+  +flex-grow(1)
+  +transition(all 0.6s ease-in-out)
+  background-color: $card-background
+  border-radius: $base-border-radius
+  //border: $card-border
+  cursor: pointer
+  margin: 0 $card-margin $base-spacing $card-margin
+  position: relative
+  &.md-car
+    &:nth-of-type(1)
+      +span-columns(5)
+      +size(10% 400px)
+      overflow: hidden
+      background-color: $color-1
+    &:nth-of-type(2)
+      +span-columns(7)
+      +size(auto 400px)
+      background: $white
+  &:hover
+    +box-shadow(0px, -5px, 50px, 0px, rgba($color-1, .6))
+    .card-image
+      h2
+        color: $color-3
+        font-size: 1.5em
+        transform: translateX(5%)
+        margin-left: 10px
+      .square
+        +size(100% 100px)
+        opacity: 1
+      .view
+        +position(absolute, 40% 10% auto auto)
+        opacity: 1
+        p
+          font-family: $font-2
+
+
+  .card-image
+    overflow: hidden
+    height: 100px
+    background-color: $white
+    //border: 2px $color-1 solid
+    +position(relative)
+    .view
+      +transition(all 0.7s ease-in-out)
+      +position(absolute, 40% -50% auto auto)
+      opacity: 0
+      p
+        color: $color-2
+
+    .square
+      +position(absolute)
+      +size(100% 0px)
+      opacity: 0
+      background: $color-1
+      z-index: 0
+      +transition(all 0.7s ease-in-out)
+    h2
+      color: $color-1
+      line-height: 100px
+      +position(relative)
+      z-index: 10
+      +transition(all 0.9s ease)
+      transform: translateX(20%)
+
+
+
+    img
+      +transition(all 0.2s ease-in-out)
+      border-top-left-radius: $base-border-radius
+      border-top-right-radius: $base-border-radius
+      width: 100%
+      opacity: 1
+  .card-header
+    +transition(all 0.2s ease-in-out)
+    background-color: $card-header-background
+    border-bottom: $card-border
+    border-radius: $base-border-radius $base-border-radius 0 0
+    font-weight: bold
+    line-height: 1.5em
+    padding: $base-spacing / 3 $base-spacing / 2
+  .card-copy
+    font-size: 0.9em
+    line-height: 1.5em
+    padding: $base-spacing / 2 $base-spacing / 2
+    p
+      margin: 0 0 $base-spacing / 2
+  &:focus,
+  &:hover
+    cursor: pointer
+    img
+      opacity: $card-image-hover-opacity
+  &:active
+    background-color: $card-background
+    .card-header
+      background-color: $card-background

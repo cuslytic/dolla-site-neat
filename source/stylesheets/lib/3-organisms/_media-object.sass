@@ -1,0 +1,152 @@
+$media-columns: 8
+$border: 1px $color-1 solid
+$block-background: transparent
+// darken($color-2, 2)
+
+.full__responsive
+  +media($small-screen)
+    margin: 0
+    +span-columns(2 of 2)
+  +media($xsmall-screen)
+    margin: 0
+    +span-columns(2 of 2)
+
+
+.media
+  +position(relative)
+  margin: 1em 0
+  h3,
+  h4,
+  h5
+    margin: 0
+  p
+    margin: 0.15em 0
+    +media($small-screen)
+      margin: 1em 0
+      line-height: 1
+      +span-columns(2 of 2)
+    +media($xsmall-screen)
+      line-height: 1
+      +span-columns(2 of 2)
+  &__img
+    // position the image using the center mixin (position, vertical, horizontal)
+    &--center
+      &Rel
+        +center($rel, true, true)
+      +center($abs, true, true)
+    &--left
+    .position--left
+      +center($abs, false, true)
+    &--centerTop
+      +center($abs, true, false)
+    &--bottom
+      +centerBottom($abs, false, false)
+    &--right
+      +center($abs, false, false)
+
+    &--icon
+      border: $border
+      background: $block-background
+      overflow: hidden
+      &Small
+        +center($rel, true, false)
+        +size(100px)
+        border: $border
+      &Medium
+        +center($rel, true, false)
+        +size(150px)
+        border: $border
+        // +media($small-screen)
+        //   width: auto
+        // +media($xsmall-screen)
+        //   width: auto
+
+      &Large
+        +center($rel, true, false)
+        +size(200px)
+        border: $border
+
+
+  &__content
+    &--centerText
+      text-align: center
+    &Horizontal
+      +span-columns(6 of 12)
+      +position(relative)
+      margin-bottom: 2em
+      +row(2n)
+      +media($small-screen)
+        margin: 0
+        +span-columns(2 of 2)
+      +media($xsmall-screen)
+        margin: 0
+        +span-columns(2 of 2)
+      &Img
+      &Text
+
+  &__btn
+    margin-top: 2em
+  &__cards
+    text-align: center
+    +shift(0.2)
+    li
+      +position(relative)
+      +span-columns(3)
+      border: $border
+      margin: 1em
+      list-style: none
+      display: inline-block
+      text-align: center
+    +media($small-screen)
+      +shift(0)
+      margin: 0
+      padding-left: 0
+      li
+        width: 30%
+        margin: 0.5em
+    +media($xsmall-screen)
+      +shift(0)
+      margin: 0
+      padding-left: 0
+      li
+        width: 30%
+        margin: 0.4em
+
+  // styling for vertical media object
+
+  &--floatLeft
+    @extend .media
+    +span-columns(6 of 12)
+
+    padding: 0.5em
+    //background: $block-background
+    +media($small-screen)
+      margin: 0
+      +span-columns(2 of 2)
+    +media($xsmall-screen)
+      margin: 0
+      +span-columns(2 of 2)
+  &--floatRight
+
+  // styling for horizontal media object //
+
+  &--horizontal
+    +span-columns(12)
+    // border: $border
+
+  &__contentHorizontal
+    background: $block-background
+    height: 300px
+    h3,
+    h4,
+    h5
+      margin: 0
+    p
+      margin: 0.15em 0
+      +media($small-screen)
+        margin: 1em 0
+        line-height: 1
+        +span-columns(2 of 2)
+      +media($xsmall-screen)
+        line-height: 1
+        +span-columns(2 of 2)

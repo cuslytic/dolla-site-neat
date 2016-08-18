@@ -33,67 +33,30 @@
 
     -# Stylesheets
     = stylesheet_link_tag 'all'
-    = stylesheet_link_tag '//cdn.rawgit.com/alvarotrigo/pagePiling.js/master/jquery.pagepiling.css'
   %body{class: current_page.data.body_class || 'page'}
     = yield
-    = _partial "footer"
-    -# Javascripts
-    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js'
-    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js'
-    = javascript_include_tag '//cdn.rawgit.com/alvarotrigo/pagePiling.js/master/jquery.pagepiling.min.js'
-    = javascript_include_tag '//cdn.jsdelivr.net/vivus/latest/vivus.min.js'
-    = javascript_include_tag 'application'
+  //= _partial "footer"
+  %script{:src => "https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"}
+  -# Javascripts
+  = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js'
+  = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js'
+  = javascript_include_tag '//cdn.jsdelivr.net/mojs/latest/mo.min.js'
+  = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js'
+  = javascript_include_tag 'application'
 
-    :javascript
-      $(document).ready(function() {
-      $('#pagepiling').pagepiling({
-          menu: null,
-          direction: 'vertical',
-          verticalCentered: true,
-          sectionsColor: [],
-          anchors: [],
-          scrollingSpeed: 1000,
-          easing: 'linear',
-          loopBottom: false,
-          loopTop: false,
-          css3: true,
-          navigation: {
-              'textColor': '#000',
-              'bulletsColor': '#000',
-              'position': 'right',
-              'tooltips': ['Home', 'Devices', 'section3', 'section4']
-          },
-          normalScrollElements: '#section5',
-          normalScrollElementTouchThreshold: 50,
-          touchSensitivity: 1,
-          keyboardScrolling: false,
-          sectionSelector: '.section',
-          animateAnchor: true,
+  :javascript
+    $('input.cc-num').payment('formatCardNumber');
+    $('input.cc-cvc').payment('formatCardCVC');
+    $('input.cc-exp').payment('formatCardExpiry');
 
-          //events
-          onLeave: function(index, nextIndex, direction){
-            var section5 = $(this.section5);
-            index == 4 && nextIndex == 5 && direction == "down" && section5.scrollTop(0).removeClass('pp-scrollable');
-          },
-          afterLoad: function(anchorLink, index){
-            var section5 = $(this.section5);
-            index === 5 && section5.addClass('pp-scrollable').scrollTop(0);
-          },
-          afterRender: function(){
-            this.section5 = $('#section5');
-          },
-          });
-      });
-
-      $( '#cd-dropdown' ).dropdown();
-      //new Vivus('.thumb-one', {duration: 200, background: '..images/thumb-section-1.svg'}, myCallback);
-
-    - if build?
-      -# Google Analytics
-      :javascript
-        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
-
-    //= _partial "foot"
+    $("#js-rotating").Morphext({
+    // The [in] animation type. Refer to Animate.css for a list of available animations.
+    animation: "bounceInUp",
+    // An array of phrases to rotate are created based on this separator. Change it if you wish to separate the phrases differently (e.g. So Simple | Very Doge | Much Wow | Such Cool).
+    separator: ",",
+    // The delay between the changing of each phrase in milliseconds.
+    speed: 3000,
+    complete: function () {
+        // Called after the entrance animation is executed.
+    }
+    });

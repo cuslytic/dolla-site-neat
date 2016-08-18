@@ -1,0 +1,92 @@
+%form.PayForm
+  .PayForm--mobileView
+    .PayForm__head
+      .media
+        .media__img--iconSmall
+        .media__content--centerText
+          %p You Deserve to live like this
+    -# .PayForm__notification
+    -#   %p Incorrect Email Address
+    .PayForm__input--email
+      .input__iconLeft
+        %label.bold
+        %input{:type =>"", :placeholder => "your@email.com"}
+        %span
+          %svg.lnr.lnr-envelope
+            %use{"xlink:href" => "#lnr-envelope"}
+    .PayForm__select--naked
+      .item--naked.js__bankCardButton.js--active
+        %p
+          Bank Card
+      .item--naked.js__mobileWalletButton
+        %p
+          Mobile Wallet
+    .PayOption.js__mobileWalletInterface
+      .PayForm__input--mobileMoneyNumber
+        .input__iconLeft
+          -# %label.bold Mobile Number
+          %input{:type =>"", :placeholder => "Enter Mobile Number"}
+          %span
+            %svg.lnr.lnr-smartphone
+              %use{"xlink:href" => "#lnr-smartphone"}
+      .PayForm__input--mobileMoneyPassword
+        .input__iconLeft
+          -# %label.bold Mobile Number
+          %input{:type =>"password", :placeholder => "Mobile Wallet Password"}
+          %span
+            %svg.lnr.lnr-lock
+              %use{"xlink:href" => "#lnr-lock"}
+
+    .PayOption.js__bankCardInterface.js--active
+      .PayForm__input--cardNumber
+        .input__iconLeft
+          %label.bold
+          %input.cc-num{:type =>"", :placeholder => "Card Number"}
+          %span
+            %svg.lnr.lnr-dice
+              %use{"xlink:href" => "#lnr-dice"}
+
+      .PayForm__select--gray
+        .item--naked
+          .PayForm__input--expiry
+            .input__iconLeft
+              %label.bold
+              %input.cc-exp{:type =>"", :placeholder => "Expiry"}
+              %span
+                %svg.lnr.lnr-calendar-full
+                  %use{"xlink:href" => "#lnr-calendar-full"}
+        .item--naked
+          .PayForm__input--ccv
+            .input__iconLeft
+              %label.bold
+              %input.cc-cvc{:type =>"", :placeholder => "CCV/CVV"}
+              %span
+                %svg.lnr.lnr-lock
+                  %use{"xlink:href" => "#lnr-lock"}
+
+    .PayForm__register
+      .PayForm__registerActivate
+        .item
+          %h5 Remember Me
+        .item.js__registerSwitch
+          %label.label-switch.js__registerSwitch
+            %input{:type => "checkbox"}/
+            .checkbox
+              .checkbox__text
+                YES
+
+      .PayForm__registerCustomerInformation
+        .register__content
+          By turning this on you are agreeing to create a Dolla account if you don't already have one. Dolla securely stores your payment info for rapid checkout for this merchant and others.
+          %h5 For security please enter your mobile number below:
+
+        .PayForm__input--mobileNumber
+          .input__iconRight
+            -# %label.bold Enter Your Number
+            %input{:type =>"", :placeholder => "Enter Mobile Number"}
+            %span
+              %svg.lnr.lnr-arrow-right-circle
+                %use{"xlink:href" => "#lnr-arrow-right-circle"}
+
+    %button.PayForm__button
+      Pay $200
